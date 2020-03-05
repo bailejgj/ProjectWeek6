@@ -8,8 +8,9 @@ namespace ConsoleApp
 {
     public class QuestionCL
     {
+        public int _score;
         public string _question;
-        public int currentQ = 0;
+        public int currentQ = 1;
         public string _answer;
         public string _nonanswer1;
         public string _nonanswer2;
@@ -29,7 +30,7 @@ namespace ConsoleApp
         //When called the question number increases by one and returns the corresponding question
         public string ChangeQuestion()
         {
-            if (currentQ < 30)
+            if (currentQ < 35)
             {
                 currentQ++;
                 return qs[currentQ].ToString();

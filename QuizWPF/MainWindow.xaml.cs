@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace QuizWPF
 {
@@ -27,10 +28,9 @@ namespace QuizWPF
         {
             InitializeComponent();
         }
-
-        private void Next_Click(object sender, RoutedEventArgs e)
+        public void Next_Click(object sender, RoutedEventArgs e)
         {
-            if (qcl.currentQ < 30)
+            if (qcl.currentQ < 28)
             {
                 QuestionNumber.Text = $"Question: {qcl.currentQ.ToString()}/30";
                 QDisplay.Text = qcl.ChangeQuestion();
@@ -38,6 +38,10 @@ namespace QuizWPF
                 BButton.Content = $"{ qcl.ChangeNonAnswer2()}";
                 CButton.Content = $"{ qcl.ChangeNonAnswer3()}";
                 DButton.Content = $"{ qcl.ChangeAnswer()}";
+                AButton.Background = Brushes.LightGray;
+                BButton.Background = Brushes.LightGray;
+                CButton.Background = Brushes.LightGray;
+                DButton.Background = Brushes.LightGray;
                 if (qcl.ButtonMover()==1)
                 {
                     AButton.Margin = new Thickness(10, 213, 0, 0);
@@ -69,6 +73,10 @@ namespace QuizWPF
             }
             else
             {
+                AButton.Visibility = Visibility.Hidden;
+                BButton.Visibility = Visibility.Hidden;
+                CButton.Visibility = Visibility.Hidden;
+                DButton.Visibility = Visibility.Hidden;
                 QuestionNumber.Text = "Quiz Completed";
             }
         }
@@ -76,21 +84,26 @@ namespace QuizWPF
         private void AButton_Click(object sender, RoutedEventArgs e)
         {
             QDisplay.Text = "Wrong Answer";
+            AButton.Background = Brushes.Red;
         }
 
         private void BButton_Click(object sender, RoutedEventArgs e)
         {
             QDisplay.Text = "Wrong Answer";
+            BButton.Background = Brushes.Red;
         }
 
         private void CButton_Click(object sender, RoutedEventArgs e)
         {
             QDisplay.Text = "Wrong Answer";
+            CButton.Background = Brushes.Red;
         }
-
         private void DButton_Click(object sender, RoutedEventArgs e)
         {
             QDisplay.Text = "Correct";
+            qcl._score++;
+            DButton.Background = Brushes.Green;
+            Score.Text = $"Score: {qcl._score.ToString()}";
         }
     }
 }
