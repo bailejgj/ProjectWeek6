@@ -34,6 +34,38 @@ namespace QuizWPF
             {
                 QuestionNumber.Text = $"Question: {qcl.currentQ.ToString()}/30";
                 QDisplay.Text = qcl.ChangeQuestion();
+                AButton.Content = $"{ qcl.ChangeNonAnswer1()}";
+                BButton.Content = $"{ qcl.ChangeNonAnswer2()}";
+                CButton.Content = $"{ qcl.ChangeNonAnswer3()}";
+                DButton.Content = $"{ qcl.ChangeAnswer()}";
+                if (qcl.ButtonMover()==1)
+                {
+                    AButton.Margin = new Thickness(10, 213, 0, 0);
+                    BButton.Margin = new Thickness(205, 213, 0, 0);
+                    CButton.Margin = new Thickness(10, 349, 0, 0);
+                    DButton.Margin = new Thickness(205, 349, 0, 0);
+                }
+                else if (qcl.ButtonMover()==2)
+                {
+                    DButton.Margin = new Thickness(10, 213, 0, 0);
+                    AButton.Margin = new Thickness(205, 213, 0, 0);
+                    BButton.Margin = new Thickness(10, 349, 0, 0);
+                    CButton.Margin = new Thickness(205, 349, 0, 0);
+                }
+                else if (qcl.ButtonMover()==3)
+                {
+                    CButton.Margin = new Thickness(10, 213, 0, 0);
+                    DButton.Margin = new Thickness(205, 213, 0, 0);
+                    AButton.Margin = new Thickness(10, 349, 0, 0);
+                    BButton.Margin = new Thickness(205, 349, 0, 0);
+                }
+                else
+                {
+                    BButton.Margin = new Thickness(10, 213, 0, 0);
+                    CButton.Margin = new Thickness(205, 213, 0, 0);
+                    DButton.Margin = new Thickness(10, 349, 0, 0);
+                    AButton.Margin = new Thickness(205, 349, 0, 0);
+                }
             }
             else
             {
@@ -43,26 +75,22 @@ namespace QuizWPF
 
         private void AButton_Click(object sender, RoutedEventArgs e)
         {
-            AButton.Content = "";
+            QDisplay.Text = "Wrong Answer";
         }
 
         private void BButton_Click(object sender, RoutedEventArgs e)
         {
-
+            QDisplay.Text = "Wrong Answer";
         }
 
         private void CButton_Click(object sender, RoutedEventArgs e)
         {
-
+            QDisplay.Text = "Wrong Answer";
         }
 
         private void DButton_Click(object sender, RoutedEventArgs e)
         {
-
+            QDisplay.Text = "Correct";
         }
-        //private void QuizProgress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        //{
-        //    QuizProgress.Value = qcl.currentQ;
-        //}
     }
 }

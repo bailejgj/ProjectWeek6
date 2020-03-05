@@ -8,7 +8,7 @@
         Title="MainWindow" Height="500" Width="400">
     <Grid>
         <!--Creating the Question Display-->
-        <TextBlock x:Name="QDisplay" HorizontalAlignment="Center" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="100" Width="380" TextAlignment="Justify" Margin="0,60,0,0"/>
+        <TextBlock x:Name="QDisplay" HorizontalAlignment="Center" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="100" Width="380" TextAlignment="Justify" Margin="0,108,0,0"/>
         <!--Creating the Next Button-->
         <Button x:Name="Next"  Content="Next" HorizontalAlignment="Left" Margin="336,10,0,0" VerticalAlignment="Top" Height="27" Width="54" Click="Next_Click"/>
         <!--Creating the Question Number Display-->
@@ -17,6 +17,5 @@
         <Button x:Name="BButton" Content="B" HorizontalAlignment="Left" Margin="205,213,0,0" VerticalAlignment="Top" Height="125" Width="185" Click="BButton_Click"/>
         <Button x:Name="CButton" Content="C" HorizontalAlignment="Left" Margin="10,349,0,0" VerticalAlignment="Top" Height="125" Width="185" Click="CButton_Click"/>
         <Button x:Name="DButton" Content="D" HorizontalAlignment="Left" Margin="205,349,0,0" VerticalAlignment="Top" Height="125" Width="185" Click="DButton_Click"/>
-
     </Grid>
 </Window>
