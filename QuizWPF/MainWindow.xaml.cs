@@ -30,80 +30,109 @@ namespace QuizWPF
         }
         public void Next_Click(object sender, RoutedEventArgs e)
         {
-            if (qcl.currentQ < 28)
+            if (qcl.currentQ < 29)
             {
-                QuestionNumber.Text = $"Question: {qcl.currentQ.ToString()}/30";
-                QDisplay.Text = qcl.ChangeQuestion();
-                AButton.Content = $"{ qcl.ChangeNonAnswer1()}";
-                BButton.Content = $"{ qcl.ChangeNonAnswer2()}";
-                CButton.Content = $"{ qcl.ChangeNonAnswer3()}";
-                DButton.Content = $"{ qcl.ChangeAnswer()}";
-                AButton.Background = Brushes.LightGray;
-                BButton.Background = Brushes.LightGray;
-                CButton.Background = Brushes.LightGray;
-                DButton.Background = Brushes.LightGray;
-                if (qcl.ButtonMover()==1)
-                {
-                    AButton.Margin = new Thickness(10, 213, 0, 0);
-                    BButton.Margin = new Thickness(205, 213, 0, 0);
-                    CButton.Margin = new Thickness(10, 349, 0, 0);
-                    DButton.Margin = new Thickness(205, 349, 0, 0);
-                }
-                else if (qcl.ButtonMover()==2)
-                {
-                    DButton.Margin = new Thickness(10, 213, 0, 0);
-                    AButton.Margin = new Thickness(205, 213, 0, 0);
-                    BButton.Margin = new Thickness(10, 349, 0, 0);
-                    CButton.Margin = new Thickness(205, 349, 0, 0);
-                }
-                else if (qcl.ButtonMover()==3)
-                {
-                    CButton.Margin = new Thickness(10, 213, 0, 0);
-                    DButton.Margin = new Thickness(205, 213, 0, 0);
-                    AButton.Margin = new Thickness(10, 349, 0, 0);
-                    BButton.Margin = new Thickness(205, 349, 0, 0);
-                }
-                else
-                {
-                    BButton.Margin = new Thickness(10, 213, 0, 0);
-                    CButton.Margin = new Thickness(205, 213, 0, 0);
-                    DButton.Margin = new Thickness(10, 349, 0, 0);
-                    AButton.Margin = new Thickness(205, 349, 0, 0);
-                }
+                UpdateQuestion();
             }
+            //Change window for end of quiz
             else
             {
                 AButton.Visibility = Visibility.Hidden;
                 BButton.Visibility = Visibility.Hidden;
                 CButton.Visibility = Visibility.Hidden;
                 DButton.Visibility = Visibility.Hidden;
+                Next.Visibility = Visibility.Hidden;
                 QuestionNumber.Text = "Quiz Completed";
+                if (qcl._score > 25)
+                {
+                    QDisplay.Text = $"Congratulations!! You Scored: {qcl._score.ToString()}";
+
+                }
             }
         }
-
+        //Display whether the selected question is correct or not and deactivate the buttons
         private void AButton_Click(object sender, RoutedEventArgs e)
         {
             QDisplay.Text = "Wrong Answer";
-            AButton.Background = Brushes.Red;
+            AButton.IsEnabled = false;
+            BButton.IsEnabled = false;
+            CButton.IsEnabled = false;
+            DButton.IsEnabled = false;
         }
 
         private void BButton_Click(object sender, RoutedEventArgs e)
         {
             QDisplay.Text = "Wrong Answer";
-            BButton.Background = Brushes.Red;
+            AButton.IsEnabled = false;
+            BButton.IsEnabled = false;
+            CButton.IsEnabled = false;
+            DButton.IsEnabled = false;
         }
 
         private void CButton_Click(object sender, RoutedEventArgs e)
         {
             QDisplay.Text = "Wrong Answer";
-            CButton.Background = Brushes.Red;
+            AButton.IsEnabled = false;
+            BButton.IsEnabled = false;
+            CButton.IsEnabled = false;
+            DButton.IsEnabled = false;
         }
         private void DButton_Click(object sender, RoutedEventArgs e)
         {
             QDisplay.Text = "Correct";
             qcl._score++;
-            DButton.Background = Brushes.Green;
             Score.Text = $"Score: {qcl._score.ToString()}";
+            AButton.IsEnabled = false;
+            BButton.IsEnabled = false;
+            CButton.IsEnabled = false;
+            DButton.IsEnabled = false;
+        }
+
+        //UpdateQuestion method logic
+        private void UpdateQuestion()
+        {
+            AButton.IsEnabled = true;
+            BButton.IsEnabled = true;
+            CButton.IsEnabled = true;
+            DButton.IsEnabled = true;
+            //Update question number
+            QuestionNumber.Text = $"Question: {(qcl.currentQ += 1).ToString()}/29";
+            //Change to next question
+            QDisplay.Text = qcl.ChangeQuestion();
+            //Change the answers on each button and return them to grey
+            AButton.Content = $"{ qcl.ChangeNonAnswer1()}";
+            BButton.Content = $"{ qcl.ChangeNonAnswer2()}";
+            CButton.Content = $"{ qcl.ChangeNonAnswer3()}";
+            DButton.Content = $"{ qcl.ChangeAnswer()}";
+            //Switch the positions of the buttons
+            if (qcl.ButtonMover() == 1)
+            {
+                AButton.Margin = new Thickness(10, 213, 0, 0);
+                BButton.Margin = new Thickness(205, 213, 0, 0);
+                CButton.Margin = new Thickness(10, 349, 0, 0);
+                DButton.Margin = new Thickness(205, 349, 0, 0);
+            }
+            else if (qcl.ButtonMover() == 2)
+            {
+                DButton.Margin = new Thickness(10, 213, 0, 0);
+                AButton.Margin = new Thickness(205, 213, 0, 0);
+                BButton.Margin = new Thickness(10, 349, 0, 0);
+                CButton.Margin = new Thickness(205, 349, 0, 0);
+            }
+            else if (qcl.ButtonMover() == 3)
+            {
+                CButton.Margin = new Thickness(10, 213, 0, 0);
+                DButton.Margin = new Thickness(205, 213, 0, 0);
+                AButton.Margin = new Thickness(10, 349, 0, 0);
+                BButton.Margin = new Thickness(205, 349, 0, 0);
+            }
+            else
+            {
+                BButton.Margin = new Thickness(10, 213, 0, 0);
+                CButton.Margin = new Thickness(205, 213, 0, 0);
+                DButton.Margin = new Thickness(10, 349, 0, 0);
+                AButton.Margin = new Thickness(205, 349, 0, 0);
+            }
         }
     }
 }

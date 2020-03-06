@@ -10,7 +10,7 @@ namespace ConsoleApp
     {
         public int _score;
         public string _question;
-        public int currentQ = 1;
+        public int currentQ = -1;
         public string _answer;
         public string _nonanswer1;
         public string _nonanswer2;
@@ -30,9 +30,10 @@ namespace ConsoleApp
         //When called the question number increases by one and returns the corresponding question
         public string ChangeQuestion()
         {
-            if (currentQ < 35)
+            if (currentQ < 30)
             {
-                currentQ++;
+                //currentQ++;
+                _question = qs[currentQ].ToString();
                 return qs[currentQ].ToString();
             }
             //Return blank if the question is above 30 to prevent errors
@@ -80,5 +81,7 @@ namespace ConsoleApp
             int ButtonMove = rnd.Next(1, 5);
             return ButtonMove;
         }
+        static void Main(string[] args)
+        { }
     }
 }
