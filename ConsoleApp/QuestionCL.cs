@@ -8,14 +8,30 @@ namespace ConsoleApp
 {
     public class QuestionCL
     {
-        public int _score;
-        public string _question;
-        public int currentQ = -1;
-        public string _answer;
-        public string _nonanswer1;
-        public string _nonanswer2;
-        public string _nonanswer3;
+        private int _score;
+        private string _question;
+        private int _currentQ = -1;
+        private string _answer;
+        private string _nonanswer1;
+        private string _nonanswer2;
+        private string _nonanswer3;
         private List<Questions> qs;
+        public int currentQ
+        {
+            get { return _currentQ; }
+            set { 
+                if (value >=0 || value <= 30)
+                { _currentQ = value; }
+                }
+        }
+        public int Score
+        {
+            get { return _score; }
+            set {
+                if (value <= 29 || value > -1)
+                { _score = value; }
+            }
+        }
 
         //Querying the questions from database to get the stored question
         public QuestionCL()

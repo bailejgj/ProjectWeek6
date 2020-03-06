@@ -42,10 +42,11 @@ namespace QuizWPF
                 CButton.Visibility = Visibility.Hidden;
                 DButton.Visibility = Visibility.Hidden;
                 Next.Visibility = Visibility.Hidden;
+                QDisplay.Visibility = Visibility.Hidden;
                 QuestionNumber.Text = "Quiz Completed";
-                if (qcl._score > 25)
+                if (qcl.Score > 25)
                 {
-                    QDisplay.Text = $"Congratulations!! You Scored: {qcl._score.ToString()}";
+                    QDisplay.Text = $"Congratulations!! You Scored: {qcl.Score.ToString()}";
 
                 }
             }
@@ -80,8 +81,8 @@ namespace QuizWPF
         private void DButton_Click(object sender, RoutedEventArgs e)
         {
             QDisplay.Text = "Correct";
-            qcl._score++;
-            Score.Text = $"Score: {qcl._score.ToString()}";
+            qcl.Score++;
+            Score.Text = $"Score: {qcl.Score.ToString()}";
             AButton.IsEnabled = false;
             BButton.IsEnabled = false;
             CButton.IsEnabled = false;
