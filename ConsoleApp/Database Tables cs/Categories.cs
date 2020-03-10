@@ -17,5 +17,9 @@ namespace ConsoleApp
 
         public virtual ICollection<Leaderboard> Leaderboard { get; set; }
         public virtual ICollection<Questions> Questions { get; set; }
+        public override string ToString()
+        {
+            return $"{CategoryName}";
+        }
     }
 }

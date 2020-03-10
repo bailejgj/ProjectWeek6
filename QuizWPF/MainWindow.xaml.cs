@@ -33,6 +33,7 @@ namespace QuizWPF
             if (qcl.currentQ < 29)
             {
                 UpdateQuestion();
+                //Category.Text = qcl.ChangeCategory();
             }
             //Change window for end of quiz
             else

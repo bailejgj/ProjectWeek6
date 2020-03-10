@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="BackGround2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ConsoleApp\ConsoleApp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="BackGround2.jpg" />
   </ItemGroup>
 
 </Project>

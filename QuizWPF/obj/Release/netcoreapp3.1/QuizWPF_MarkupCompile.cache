@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\TECH-W51-BIRM\Documents\Class Notes\week 6 Project Week\WPFQuizApp\QuizWPF\obj\Debug\netcoreapp3.1\
+C:\Users\TECH-W51-BIRM\Documents\Class Notes\week 6 Project Week\WPFQuizApp\QuizWPF\obj\Release\netcoreapp3.1\
 QuizWPF
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
+TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
 C:\Users\TECH-W51-BIRM\Documents\Class Notes\week 6 Project Week\WPFQuizApp\QuizWPF\App.xaml
 2-100771021
 
 4664864287
-211-651549930
+211-416592027
 MainWindow.xaml;StartWindow.xaml;
 
-False
+True
 

@@ -11,11 +11,14 @@ namespace ConsoleApp
         private int _score;
         private string _question;
         private int _currentQ = -1;
+        //private int _maxQ;
         private string _answer;
+        private int _currentC = 0;
         private string _nonanswer1;
         private string _nonanswer2;
         private string _nonanswer3;
         private List<Questions> qs;
+        private List<Categories> cs;
         public int currentQ
         {
             get { return _currentQ; }
@@ -23,6 +26,15 @@ namespace ConsoleApp
                 if (value >=0 || value <= 30)
                 { _currentQ = value; }
                 }
+        }
+        public int currentC
+        {
+            get { return _currentC; }
+            set
+            {
+                if (value >= 0 || value <= 10)
+                { _currentC = value; }
+            }
         }
         public int Score
         {
@@ -32,8 +44,17 @@ namespace ConsoleApp
                 { _score = value; }
             }
         }
-
+        //Attempt to make the maximum question the highest index in the list
+        //public int maxQ
+        //{
+        //    get { return _maxQ; }
+        //    private set 
+        //    {
+        //        _maxQ = qs.Count();
+        //    }
+        //}
         //Querying the questions from database to get the stored question
+
         public QuestionCL()
         {
             using (var db = new week6ProjectContext())
@@ -42,7 +63,35 @@ namespace ConsoleApp
                     (from q in db.Questions.Include(a => a.Answers)
                      select q).ToList();
             }
+            using (var db = new week6ProjectContext())
+            {
+                cs =
+                    (from c in db.Categories.Include(q => q.Questions)
+                     select c).ToList();
+            }
         }
+        public string ChangeCategory()
+        {
+            if (currentQ <= 9)
+            {
+                return cs[currentC].ToString();
+            }
+            else if (currentQ == 10)
+            {
+                currentC++;
+                return cs[currentC].ToString();
+            }
+            else if (currentQ == 20)
+            {
+                currentC++;
+                return cs[currentC].ToString();
+            }
+            else
+            {
+                return "";
+            }
+        }
+        
         //When called the question number increases by one and returns the corresponding question
         public string ChangeQuestion()
         {
@@ -98,6 +147,7 @@ namespace ConsoleApp
             return ButtonMove;
         }
         static void Main(string[] args)
-        { }
+        { 
+        }
     }
 }

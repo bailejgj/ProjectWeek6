@@ -1,2 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConsoleApp.Answers">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAACwAAAAAAAAAAAAAAAAAAAAAAAEAAAAAgQAAAA=</HashCode>
+      <FileName>Database Tables cs\Answers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp.Categories">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAACAAACAAAAAECAAAAAAAAAA=</HashCode>
+      <FileName>Database Tables cs\Categories.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp.Leaderboard">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAggAAAAAAAADAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Database Tables cs\Leaderboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp.Questions">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAwgEAAAAAAAAAAAAAAAEQAAAAAQADAA=</HashCode>
+      <FileName>Database Tables cs\Questions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp.week6ProjectContext">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAQAAAAAAAAAAAAEAAAEAAESAAAAAAAAAA=</HashCode>
+      <FileName>Database Tables cs\week6ProjectContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp.QuestionCL">
+    <Position X="2.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>iQMAAACAAAwAgghAABAAQAAAAIgAAABAAAAABAAAAAA=</HashCode>
+      <FileName>QuestionCL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
